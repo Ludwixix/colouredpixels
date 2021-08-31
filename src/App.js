@@ -25,19 +25,19 @@ function builder(){
 function getRandomColour(min, max){
   min = Math.ceil(min);
   max = Math.floor(max);
-  const x = Math.floor(Math.random() * (max - min + 1) + min)
-  const y = Math.floor(Math.random() * (max - min + 1) + min)
-  const z = Math.floor(Math.random() * (max - min + 1) + min)
-  var rgb = `rgb(${x},${y},${z})`
+  const r = Math.floor(Math.random() * (max - min + 1) + min)
+  const g = Math.floor(Math.random() * (max - min + 1) + min)
+  const b = Math.floor(Math.random() * (max - min + 1) + min)
+  let rgb = `rgb(${r},${g},${b})`
  return rgb
 }
 
 function buildUniqueColoursArray() {
-  var count = 0;
-  var map = new Map();
-  var doopsCount = 0;
+  let count = 0;
+  let map = new Map();
+  let doopsCount = 0;
   while(count < 32768){
-    var newCol = false;
+    let newCol = false;
     while( newCol === false){
       const newColor = getRandomColour(0,256)
       // if color exists in map get a new one until it doesn't
@@ -52,7 +52,7 @@ function buildUniqueColoursArray() {
   count = count +1
 }
 // map to arr
-   const mapArray = Array.from( map ).map(([key, value]) => ({ key, value }));
+  const mapArray = Array.from( map ).map(([key, value]) => ({ key, value }));
 // return arr
   return mapArray
 }
